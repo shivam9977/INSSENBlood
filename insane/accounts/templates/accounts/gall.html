@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSSEN - The Game Of Growth</title>
+    <link rel="shortcut icon" href="{% static 'images/fav.jpg'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/fontawsom-all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}" />
+
+
+
+
+    
+<script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'js/popper.min.js'%}"></script>
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/jquery-scrolltofixed-min.js'%}"></script>
+<script src="{% static 'js/scroll-nav/js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/scroll-nav/js/scrolling-nav.js' %}"></script>
+<script src="{% static 'js/script.js'%}"></script>
+</head>
+<body>
+
+    <header id="menu-jk">
+    
+        <div id="nav-head" class="header-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 no-padding col-sm-12 nav-img">
+                        <img src="/Logo/Inssen_logo.PNG"  height="50px" width="0px" alt="">
+                       <a data-toggle="collapse" data-target="#menu" href="#menu" ><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
+                    </div>
+                    <div id="menu" class="col-lg-8 col-md-9 d-none d-md-block nav-item">
+                        <ul>
+                           
+                            <li><a href="/">Home</a></li>
+                            <li><a href="./accounts/whoweare/">Who We Are</a></li>
+                            <li><a href="./accounts/aboutUs/">About us</a></li>
+                            <li><a href="./accounts/blog/">Blog</a></li>  
+                            <li><a href="./accounts/gall/">Gallery</a></li>
+                            <li><a href="./accounts/contactUs/">Contact Us</a></li>
+                            <li><a href="./accounts/signUp/">Sign Up</a></li>
+                            <li><a href="./accounts/signIn/">Sign In</a></li>
+                            <li><a href="./feedback_app/submit_feedback">Feedback</a></li>
+                            <li><a href="./feedback_app/view_feedback">View Feedback</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-2 d-none d-lg-block appoint">
+                        <button class="btn btn-success"> <a href="./accounts/bookAppointment/" style="color: rgb(236, 240, 243);">Book an Appointment</a></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <br>
+    <br>
+    <h1>here some pictures of whom our patients</h1>
+    <p>See the donors and our teams</p>
+
+    <!--  ************************* Gallery Starts Here ************************** -->
+    <div id="gallery" class="gallery">    
+        <div class="container">
+           <div class="row">
+             
+
+     <div class="gallery-filter d-none d-sm-block">
+         <button class="btn btn-default filter-button" data-filter="all">All</button>
+         <button class="btn btn-default filter-button" data-filter="hdpe">Find A Donor</button>
+         <button class="btn btn-default filter-button" data-filter="sprinkle">Orgnize A Camp</button>
+         <button class="btn btn-default filter-button" data-filter="spray"> SPREAD AWARENESS</button>
+         <button class="btn btn-default filter-button" data-filter="irrigation">Request As Donor</button>
+     </div>
+     <br/>
+
+
+
+         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+             <img src="assets/images/gallery/gallery_01.jpg" class="img-responsive">
+         </div>
+
+         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+             <img src="assets/images/gallery/gallery_02.jpg" class="img-responsive">
+         </div>
+
+         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+             <img src="assets/images/gallery/gallery_03.jpg" class="img-responsive">
+         </div>
+
+         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+             <img src="assets/images/gallery/gallery_04.jpg" class="img-responsive">
+         </div>
+
+         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+             <img src="assets/images/gallery/gallery_05.jpg" class="img-responsive">
+         </div>
+
+       
+
+         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+             <img src="assets/images/gallery/gallery_06.jpg" class="img-responsive">
+         </div>
+
+     </div>
+ </div>
+    
+    
+    </div>
+     <!-- ######## Gallery End ####### -->
+
+
+
+      <!-- ################# Footer Starts Here#######################-->
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2>About Us</h2>
+                    <p>
+                        Inssen is a open source blood Donation app available for Android smartphones. Inssen searches, notifies and connect thousands of blood donors in three simple steps. Inssen donation app ensures hassle free blood donation and privacy of a blood donor. A blood donor can select any specific date and location to donate blood and find a suitable person who needs blood.  </p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h2>NAVIGATION</h2>
+                    <ul class="list-unstyled link-list">
+                        <li><a ui-sref="about" href="#/about">About us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="portfolio" href="#/portfolio">Portfolio</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="products" href="#/products">Latest jobs</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="gallery" href="#/gallery">Gallery</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="contact" href="#/contact">Contact us</a><i class="fa fa-angle-right"></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 map-img">
+                    <h2>Contact Us</h2>
+                    <address class="md-margin-bottom-40">
+                        INSSEN <br>
+                        M.P. Nagar (Bhopal District) <br>
+                        Madhya Pradesh, IND <br>
+                        Phone: +91 9159669599 <br>
+                        Email: <a href="mailto:info@inssen.com" class="">info@inssen.com</a><br>
+                        Web: <a href="smart-eye.html" class="">www.inssen.in</a>
+                    </address>
+
+                </div>
+            </div>
+        </div>
+        
+
+    </footer>
+    <div class="copy">
+            <div class="container">
+                <a href="https://www.inssen.com/">2023 &copy; All Rights Reserved | Designed and Developed by </a>
+                
+                <span>
+                <a><i class="fab fa-github"></i></a>
+                <a><i class="fab fa-google-plus-g"></i></a>
+                <a><i class="fab fa-pinterest-p"></i></a>
+                <a><i class="fab fa-twitter"></i></a>
+                <a><i class="fab fa-facebook-f"></i></a>
+        </span>
+            </div>
+
+        </div>
+
+
+    
+</body>
+</html>

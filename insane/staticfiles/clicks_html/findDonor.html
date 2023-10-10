@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Donor</title>
+    <link rel="stylesheet" href="">
+    <script src="script.js"></script>
+
+    <link rel="shortcut icon" href="{% static 'images/fav.jpg'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/fontawsom-all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}" />
+
+
+
+
+    
+<script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'js/popper.min.js'%}"></script>
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/jquery-scrolltofixed-min.js'%}"></script>
+<script src="{% static 'js/scroll-nav/js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/scroll-nav/js/scrolling-nav.js' %}"></script>
+<script src="{% static 'js/script.js'%}"></script>
+    
+   
+</head>
+<body>
+    <header>
+        <h1>Find a Donor</h1>
+    </header>
+    <form>
+        <label for="bloodGroup">Select Blood Group:</label><!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Find a Donor</title>
+            <!-- Add Bootstrap CSS link -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <style>
+                /* Custom CSS styles can be added here */
+                body {
+                    background-color: #f8f9fa;
+                }
+                .container {
+                    padding: 20px;
+                    background-color: #ffffff;
+                    border-radius: 10px;
+                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+                    margin-top: 30px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1 class="text-center">Find a Donor</h1>
+                <form id="findDonorForm">
+                    <div class="form-group">
+                        <label for="bloodGroup">Select Blood Group:</label>
+                        <select class="form-control" name="bloodGroup" required>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <div class="mt-4">
+                    <!-- Donor list results will be displayed here -->
+                </div>
+            </div>
+        
+            <!-- Add Bootstrap JS and jQuery -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+            <script>
+                // JavaScript code for handling form submission and displaying results can be added here
+                document.addEventListener("DOMContentLoaded", function () {
+                    const findDonorForm = document.getElementById("findDonorForm");
+                    const donorList = document.getElementById("donorList");
+        
+                    // Mock donor data (replace with your actual data source)
+                    const donors = [
+                        { name: "John Doe", bloodGroup: "A+", contact: "123-456-7890" },
+                        { name: "Jane Smith", bloodGroup: "B-", contact: "987-654-3210" },
+                        // Add more donor data here
+                    ];
+        
+                    findDonorForm.addEventListener("submit", function (event) {
+                        event.preventDefault();
+                        const selectedBloodGroup = findDonorForm.bloodGroup.value;
+                        const matchedDonors = donors.filter((donor) => donor.bloodGroup === selectedBloodGroup);
+        
+                        if (matchedDonors.length > 0) {
+                            const donorHTML = matchedDonors.map((donor) => {
+                                return `<div class="alert alert-success">
+                                    <strong>${donor.name}</strong><br>
+                                    Blood Group: ${donor.bloodGroup}<br>
+                                    Contact: ${donor.contact}
+                                </div>`;
+                            }).join("");
+                            donorList.innerHTML = donorHTML;
+                        } else {
+                            donorList.innerHTML = "<div class='alert alert-danger'>No donors found with the selected blood group.</div>";
+                        }
+                    });
+                });
+            </script>
+        </body>
+        </html>
+        
+        <select id="bloodGroup" name="bloodGroup" required>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select><br><br>
+
+        <button type="submit">Search</button>
+    </form>
+    <div id="donorList">
+        <!-- Donor list results will be displayed here -->
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,193 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Feedback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/feedback.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+    <link rel="shortcut icon" href="{% static 'images/fav.jpg'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/fontawsom-all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.css'%}">
+    
+
+    <script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/jquery-scrolltofixed-min.js'%}"></script>
+    <script src="{% static 'js/scroll-nav/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/scroll-nav/js/scrolling-nav.js' %}"></script>
+    <script src="{% static 'js/script.js'%}"></script>
+    
+    
+</head>
+<body>
+
+
+    <!-- ################# Header Navigation Bar Starts Here#######################-->
+    <header id="menu-jk" style="color:black ;" importance="style">
+    
+        <div id="nav-head" class="header-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 no-padding col-sm-12 nav-img">
+                        <img src="{% static 'images/LOGOINSSEN.png'%}" importance="style">
+                       <a data-toggle="collapse" data-target="#menu" href="#menu" ><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
+                    </div>
+                      <div id="menu" class="col-lg-8 col-md-9 d-none d-md-block nav-item">
+                          <ul class="nav-links">
+                             {% if user.is_authenticated %}
+                             <li style="color: white;">{{user.username}}</li>
+                             {% if user.is_authenticated and user.is_superuser %}
+                             <li><a href="./feedback_app/view_feedback/">View Feedback</a></li>
+                             {% endif %}
+                            <li><a href="./accounts/logout/">Log out</a></li>
+                             {% else %}
+                             <li><a href="/">Home</a></li>
+                             <li><a href="./accounts/signUp/">Sign Up</a></li>
+                             <li><a href="./accounts/signIn/">Sign In</a></li>
+                             <li><a href="./feedback_app/submit_feedback/">FeedBack</a></li>
+                            {% endif %}
+                            {% if user.is_authenticated %}
+                             <a href="{% url 'logout' %}">Logout</a>
+                            {% endif %}
+                          </ul>
+                      </div>
+                    <div class="col-sm-2 d-none d-lg-block appoint">
+                        <button class="btn btn-success"> <a href="./accounts/bookAppointment/" style="color: rgb(236, 240, 243);">Book an Appointment</a></button>
+                    </div>
+                </div>
+
+             </div>
+        </div>
+    </header>
+    
+
+
+
+
+    {% comment %} <header>
+        <nav>
+            <div class="logo">
+                <h1><a href="#">DoWork!</a></h1>
+            </div>
+            <ul class="nav-links">
+                {% if user.is_authenticated %}
+               <li style="color: white;">{{user.username}}</li>
+               {% if user.is_authenticated and user.is_superuser %}
+               <li><a href="./feedback_app/view_feedback/">View Feedback</a></li>
+               {% endif %}
+              <li><a href="./accounts/logout/">Log out</a></li>
+               {% else %}
+               <li><a href="./accounts/signUp">Sign up</a></li>
+               <li><a href="./accounts/signIn">Sign In</a></li>
+                <li><a href="./feedback_app/submit_feedback/">FeedBack</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <h1 style="text-align: center;">Start Your Work Here</h1>
+        <p style="text-align: center;">Be productive!</p>
+    </header> {% endcomment %}
+    <div class="container">
+        <h1>View Feedback</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feedback in feedbacks %}
+                    <tr>
+                        <td>{{ feedback.fullname }}</td>
+                        <td>{{ feedback.subject }}</td>
+                        <td>{{ feedback.message }}</td>
+                     
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination">
+            <span class="step-links">
+                {% if feedbacks.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ feedbacks.previous_page_number }}">previous</a>
+                {% endif %}
+                
+                <span class="current-page">
+                    Page {{ feedbacks.number }} of {{ feedbacks.paginator.num_pages }}.
+                </span>
+                
+                {% if feedbacks.has_next %}
+                    <a href="?page={{ feedbacks.next_page_number }}">next</a>
+                    <a href="?page={{ feedbacks.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    <br>
+    <!-- ################# Footer Starts Here#######################-->
+
+
+     <!-- ################# Footer Starts Here#######################-->
+
+
+     <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2>About Us</h2>
+                    <p>
+                        Inssen is a open source blood Donation app available for Android smartphones. Inssen searches, notifies and connect thousands of blood donors in three simple steps. Inssen donation app ensures hassle free blood donation and privacy of a blood donor. A blood donor can select any specific date and location to donate blood and find a suitable person who needs blood.  </p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h2>NAVIGATION</h2>
+                    <ul class="list-unstyled link-list">
+                        <li><a ui-sref="about" href="#/about">About us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="portfolio" href="#/portfolio">Portfolio</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="products" href="#/products">Latest jobs</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="gallery" href="#/gallery">Gallery</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="contact" href="#/contact">Contact us</a><i class="fa fa-angle-right"></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 map-img">
+                    <h2>Contact Us</h2>
+                    <address class="md-margin-bottom-40">
+                        INSSEN <br>
+                        M.P. Nagar (Bhopal District) <br>
+                        Madhya Pradesh, IND <br>
+                        Phone: +91 9159669599 <br>
+                        Email: <a href="mailto:info@inssen.com" class="">info@inssen.com</a><br>
+                        Web: <a href="smart-eye.html" class="">www.inssen.in</a>
+                    </address>
+
+                </div>
+            </div>
+        </div>
+        
+
+    </footer>
+    <div class="copy">
+            <div class="container">
+                <a href="https://www.inssen.com/">2023 &copy; All Rights Reserved | Designed and Developed by </a>
+                
+                <span>
+                <a><i class="fab fa-github"></i></a>
+                <a><i class="fab fa-google-plus-g"></i></a>
+                <a><i class="fab fa-pinterest-p"></i></a>
+                <a><i class="fab fa-twitter"></i></a>
+                <a><i class="fab fa-facebook-f"></i></a>
+        </span>
+            </div>
+
+        </div>
+    
+</body>
+</html>

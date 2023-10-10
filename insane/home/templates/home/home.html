@@ -1,0 +1,489 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>INSSEN-A blood donation app for saving lives</title>
+
+    <link rel="shortcut icon" href="{% static 'images/fav.jpg'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/fontawsom-all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+
+
+
+
+    
+<script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'js/popper.min.js'%}"></script>
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/jquery-scrolltofixed-min.js'%}"></script>
+<script src="{% static 'js/scroll-nav/js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/scroll-nav/js/scrolling-nav.js' %}"></script>
+<script src="{% static 'js/script.js'%}"></script>
+
+
+
+</head>
+
+    <body>
+        {% block content %}
+         <!-- Home page content -->
+
+         <!-- Alert popup -->
+         {% if messages %}
+        <script>
+        // Display the alert popup with the first message (usually the success message)
+             showAlertPopup("{{ messages.0 }}");
+       </script>
+         {% endif %}
+       {% endblock %}
+
+    <!-- ################# Header Navigation Bar Starts Here#######################-->
+    <header id="menu-jk">
+    
+        <div id="nav-head" class="header-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 no-padding col-sm-12 nav-img">
+                        <img src="{% static 'images/LOGOINSSEN.png'%}" style="margin-bottom: 20px;" importance="style">
+                       <a data-toggle="collapse" data-target="#menu" href="#menu" ><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
+                    </div>
+                    <div id="menu" class="col-lg-8 col-md-9 d-none d-md-block nav-item">
+                        <ul>
+
+                            <li><a href="/">Home</a></li>
+                            <li><a href="./accounts/whoweare/">Who We Are</a></li>
+                            <li><a href="./accounts/aboutUs/">About us</a></li>
+                            {% comment %} <li><a href="become_donor/">test</a></li> {% endcomment %}
+                            <li><a href="./accounts/blog/">Blog</a></li>  
+                            <li><a href="./accounts/gall/">Gallery</a></li>
+                            <li><a href="./accounts/contactUs/">Contact Us</a></li>
+                            {% if user.is_authenticated %}
+                             <li><a href="{% url 'logout' %}">Logout</a></li>
+                            {% endif %}
+                            {% comment %} <li><a href="./accounts/signUp/">Sign Up</a></li>
+                            <li><a href="./accounts/signIn/">Sign In</a></li>
+                            <li><a href="./feedback_app/submit_feedback">Feedback</a></li>
+                            <li><a href="./feedback_app/view_feedback">View Feedback</a></li> {% endcomment %}
+                            
+                        </ul>
+                    </div>
+                    <div class="col-sm-2 d-none d-lg-block appoint">
+                        <button class="btn btn-success"> <a href="./accounts/bookAppointment/" style="color: rgb(236, 240, 243);">Book an Appointment</a></button>
+                        
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    
+    
+     <!-- ################# Slider Starts Here#######################-->
+
+       <!--***************************** Slider Starts Here *****************************-->
+   <div  class="slider container-fluid">
+   		<ul id="slider">
+   			<li data-active="1" data-background="{% static 'images/slider_1.jpg'%}">
+   				<div class="slider-layer">
+					<div class="container">
+						<h1 class="animated  fadeInRightBig ">Every Blood Donor Is A Lifesaver<br></h1>
+						<p class="animated  fadeInLeftBig">India has a shortage of 2 Million Blood Units
+                            There is a requirement of 15 million units of blood annually. However, we are only able to collect 13 million units. We just need 2% of India’s youth to donate regularly to address the complete demand.</p>
+						<div class="animated fadeInUpBig buttn-row">
+							<div class="btn"><a href="become_donor/">Become A Donor</a></div>
+							<div class="btn"><a href="./accounts/findDonor/">Find A Donor</a></div>
+						</div>
+					</div>
+   				</div>
+   			
+   			</li>
+   			<li data-active="0" data-background="{% static 'images/slider_3.jpg'%}">
+   				<div class="slider-layer">
+					<div class="container">
+						<h1 class="animated  slideInDown ">You can make a difference</h1>
+						<p class="animated  zoomInLeft ">INSSEN is a completely non-profit organisation. To keep our services running 24x7, we need your support. With every ₹ 50 donation, we save one life!</p>
+						
+						<div class="buttn-row animated  zoomInLeft">
+							<div class="btn"><a href="become_donor/">Become A Donor</a></div>
+							<div class="btn"><a href="./accounts/findDonor/"></a>Find A Donor</div>
+						</div>
+					</div>
+   				</div>
+   			</li>
+   	
+   		</ul>
+   </div><!--########## Slider Ends Here ##########-->
+   
+    <!-- ################# Key Features Starts Here#######################-->
+
+    <section id="services" class="key-features">
+        <div class="container">
+            <div class="inner-title">
+
+                <h2>Our Key Process</h2>
+                <p>Take a look at some of our key features</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-key">
+                        <i class="fas fa-hospital-alt"></i>
+                        <h5>1 - Registration</h5>
+                        <p>Please fill the following information to register as voluntary blood donor and become part of F2S vision. Kindly update your date of donation once done, so that</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-key">
+                        <i class="fas fa-user-md"></i>
+                        <h5>Experienced Doctors</h5>
+                        <p>The Donation — You'll be seated comfortably while a pint of blood is drawn. The actual donation only takes 8-10 minutes. Refreshment and Recovery — After donating.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-key">
+                        <i class="fas fa-briefcase-medical"></i>
+                        <h5>High Customer Satisfaction</h5>
+                        <p>You are one step closer to bring a change! SPREAD AWARENESS in your college, office, society and make them aware of the importance and benefits of blood donation.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-key">
+                        <i class="fas fa-capsules"></i>
+                        <h5>Pharma Pipeline</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut erat nec leo lobortis blandit.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-key">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                        <h5>Pharma Team</h5>
+                        <p>AIM Education & Research Society is an NGO, a non-governmental organization which is being run by a Group.</p>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-key">
+                        <i class="far fa-thumbs-up"></i>
+                        <h5>High Quality treatments</h5>
+                        <p> This ensures that the vision of INSSEN spreads far and wide and people realize the significance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+    <!-- ################# With Medical Starts Here#######################-->
+
+    <section id="about_us" class="with-medical">
+        <div class="container">
+            <div class="row">
+               <div class="col-lg-6 col-md-12">
+                    <img src="{% static 'images/why.jpg' %}" alt="">
+                </div>
+                <div class="col-lg-6 col-md-12 txtr">
+                    <h4>Why should I donate blood? <br>
+                     <span>Donation Hospital</span>   
+                    </h4>
+                    <p>We at INSSEN live by the motto of saving lives by ensuring every drop of blood contributes towards the right cause of saving lives. A mission started by young IITians (Delhi)
+                        They worked around-the-clock towards this cause, and in no time, INSSEN became a full- scale NGO with a mission of solving the problem of blood shortage in India. </p>
+                        <p>How can you donate ?
+                            All contributions made to INSSEN are eligible for tax deduction as per the 80G section of the Income Tax Act, 1961. We collaborate with colleges, corporates, RWAs to organize innovative and engaging blood donation camps end to end.Motivate an 18 year old to donate blood for the first time on his / her birthday via a street play</p>
+p                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    
+     
+    
+    <!--  ************************* Blog Starts Here ************************** -->
+            <div id="blog" class="blog">
+               <div class="row session-title">
+                   <h2>Latest Blog</h2>
+                   <p>INSSEN was elated to bring you beautiful people a chance to showcase your talent through our reel making competition – REEL-O-NATE. We were amazed by the response we got and the talents showcased in these reels. All the participants of thi...</p>
+               </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="blog-singe no-margin row">
+                                <div class="col-sm-5 blog-img-tab">
+                                    <img src="{% static 'images/blog_01.jpg'%}" alt="">
+                                </div>
+                                <div class="col-sm-7 blog-content-tab">
+                                    <h2>I’M A SAVIOUR – Online Competition</h2>
+                                    <p><i class="fas fa-user"><small>Admin</small></i>  <i class="fas fa-eye"><small>(12)</small></i>  <i class="fas fa-comments"><small>(12)</small></i></p>
+                                    <p class="blog-desic">I’M A SAVIOR is as effortless as competitions can be for you. It brings you the opportunity to create awareness among people connected to you and while creating awareness regarding blood donation, you can also win prizes for the noble step taken... </p>
+                                    <a href="{% static 'clicks_html/blog.html' %}">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="blog-singe no-margin row">
+                                <div class="col-sm-5 blog-img-tab">
+                                    <img src="{% static 'images/blog_02.jpg'%}" alt="">
+                                </div>
+                                <div class="col-sm-7 blog-content-tab">
+                                    <h2>Sometimes the blood is not red enough!</h2>
+                                    <p><i class="fas fa-user"><small>Admin</small></i>  <i class="fas fa-eye"><small>(12)</small></i>  <i class="fas fa-comments"><small>(12)</small></i></p>
+                                    <p class="blog-desic">We don’t realise how lucky we are by having a healthy and disease-free body. Unlike us, Disha is not completely healthy. Let’s hear it from her. Hey, my name is Disha, and I’m 8 years old. In an age where most of us are scared of injections, ... </p>
+                                    <a href="{% static 'clicks_html/blog.html' %}">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <!-- ######## Blog End ####### -->
+        
+        <!--  ************************* Gallery Starts Here ************************** -->
+        <div id="gallery" class="gallery">    
+           <div class="container">
+              <div class="row">
+                
+
+        <div class="gallery-filter d-none d-sm-block">
+            <button class="btn btn-default filter-button" data-filter="all">All</button>
+            <button class="btn btn-default filter-button" ><a href="./accounts/signUp/">Sign-In</a></button>
+            <button class="btn btn-default filter-button" ><a href="./accounts/signIn/">Register</a></button>
+            <button class="btn btn-default filter-button" ><a href="./feedback_app/submit_feedback">Feedback</a></button>
+            <button class="btn btn-default filter-button" ><a href="./feedback_app/view_feedback">View Feedbacks</a></button>
+            
+            <button class="btn btn-default filter-button" data-filter="hdpe">Find A Donor</button>
+            <button class="btn btn-default filter-button" data-filter="sprinkle">Orgnize A Camp</button>
+            <button class="btn btn-default filter-button" data-filter="spray"> SPREAD AWARENESS</button>
+            <button class="btn btn-default filter-button" data-filter="irrigation">Request As Donor</button>
+        </div>
+        <br/>
+
+
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="{% static 'images/gallery_01.jpg'%}" class="img-responsive">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <img src="{% static 'images/gallery_02.jpg'%}" class="img-responsive">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="{% static 'images/gallery_03.jpg'%}" class="img-responsive">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                <img src="{% static 'images/gallery_04.jpg'%}" class="img-responsive">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <img src="{% static 'images/gallery_05.jpg'%}" class="img-responsive">
+            </div>
+
+          
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <img src="{% static 'images/gallery_06.jpg'%}" class="img-responsive">
+            </div>
+
+        </div>
+    </div>
+       
+       
+       </div>
+        <!-- ######## Gallery End ####### -->
+
+        
+         <!-- ################# Our Team Starts Here#######################-->
+    <section class="our-team">
+        <div class="container">
+            <div class="inner-title row">
+                <h2>Our Team</h2>
+                <p>Take a look at our Team</p>
+            </div>
+            <div class="row team-row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-usr">
+                        <img src="{% static 'images/team-memb1.jpg'%}" alt="">
+                        <div class="det-o">
+                            <h4>David Kanuel</h4>
+                            <i>Facial Surgan</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-usr">
+                        <img src="{% static 'images/team-memb2.jpg'%}" alt="">
+                        <div class="det-o">
+                            <h4>David Kanuel</h4>
+                            <i>Facial Surgan</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-usr">
+                        <img src="{% static 'images/team-memb3.jpg'%}" alt="">
+                        <div class="det-o">
+                            <h4>David Kanuel</h4>
+                            <i>Facial Surgan</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-usr">
+                        <img src="{% static 'images/team-memb4.jpg'%}" alt="">
+                        <div class="det-o">
+                            <h4>David Kanuel</h4>
+                            <i>Facial Surgan</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    
+    
+    <!--   ************************* Contact Us Starts Here ************************** -->
+    
+    <section id="contact_us" class="contact-us-single">
+        <div class="row no-margin">
+            <div class="col-sm-6 no-padding">
+                 <iframe style="width:100%" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d249759.19784092825!2d79.10145254589841!3d12.009924873581818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1448883859107"  height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div  class="col-sm-6 cop-ck">
+                <h2 >DROP US A MESSAGE</h2>
+                <p>Fill this and we will be in touch with you soon.</p>
+                <p>If you need blood, please register at FIND A DONOR only</p><br>
+                    <div class="row cf-ro">
+                        <div  class="col-sm-3"><label>Enter Name :</label></div>
+                        <div class="col-sm-8"><input type="text" placeholder="Enter Name" name="name" class="form-control input-sm"  ></div>
+                    </div>
+                    <div  class="row cf-ro">
+                        <div  class="col-sm-3"><label>Email Address :</label></div>
+                        <div class="col-sm-8"><input type="text" name="name" placeholder="Enter Email Address" class="form-control input-sm"  ></div>
+                    </div>
+                     <div  class="row cf-ro">
+                        <div  class="col-sm-3"><label>Mobile Number:</label></div>
+                        <div class="col-sm-8"><input type="text" name="name" placeholder="Enter Mobile Number" class="form-control input-sm"  ></div>
+                    </div>
+                     <div  class="row cf-ro">
+                        <div  class="col-sm-3"><label>Enter  Message:</label></div>
+                        <div class="col-sm-8">
+                          <textarea rows="5" placeholder="Enter Your Message" class="form-control input-sm"></textarea>
+                        </div>
+                    </div>
+                     <div  class="row cf-ro">
+                        <div  class="col-sm-3"><label></label></div>
+                        <div class="col-sm-8">
+                         <button class="btn btn-success btn-sm">Send Message</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<!--    -->
+<!--    &lt;!&ndash; ################# Footer Starts Here#######################&ndash;&gt;-->
+
+
+<!--    <footer class="footer">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-4 col-sm-12">-->
+<!--                    <h2>About Us</h2>-->
+<!--                    <p>-->
+<!--                        Inssen is a open source blood Donation app available for Android smartphones. Inssen searches, notifies and connect thousands of blood donors in three simple steps. Inssen donation app ensures hassle free blood donation and privacy of a blood donor. A blood donor can select any specific date and location to donate blood and find a suitable person who needs blood.  </p>-->
+<!--                </div>-->
+<!--                <div class="col-md-4 col-sm-12">-->
+<!--                    <h2>NAVIGATION</h2>-->
+<!--                    <ul class="list-unstyled link-list">-->
+<!--                        <li><a ui-sref="about" href="#/about">About us</a><i class="fa fa-angle-right"></i></li>-->
+<!--                        <li><a ui-sref="portfolio" href="#/portfolio">Portfolio</a><i class="fa fa-angle-right"></i></li>-->
+<!--                        <li><a ui-sref="products" href="#/products">Latest jobs</a><i class="fa fa-angle-right"></i></li>-->
+<!--                        <li><a ui-sref="gallery" href="#/gallery">Gallery</a><i class="fa fa-angle-right"></i></li>-->
+<!--                        <li><a ui-sref="contact" href="#/contact">Contact us</a><i class="fa fa-angle-right"></i></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="col-md-4 col-sm-12 map-img">-->
+<!--                    <h2>Contact Us</h2>-->
+<!--                    <address class="md-margin-bottom-40">-->
+<!--                        INSSEN <br>-->
+<!--                        M.P. Nagar (Bhopal District) <br>-->
+<!--                        Madhya Pradesh, IND <br>-->
+<!--                        Phone: +91 9159669599 <br>-->
+<!--                        Email: <a href="mailto:info@inssen.com" class="">info@inssen.com</a><br>-->
+<!--                        Web: <a href="smart-eye.html" class="">www.inssen.in</a>-->
+<!--                    </address>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        -->
+
+<!--    </footer>-->
+<!--    <div class="copy">-->
+<!--            <div class="container">-->
+<!--                <a href="https://www.inssen.com/">2023 &copy; All Rights Reserved | Designed and Developed by </a>-->
+<!--                -->
+<!--                <span>-->
+<!--                <a><i class="fab fa-github"></i></a>-->
+<!--                <a><i class="fab fa-google-plus-g"></i></a>-->
+<!--                <a><i class="fab fa-pinterest-p"></i></a>-->
+<!--                <a><i class="fab fa-twitter"></i></a>-->
+<!--                <a><i class="fab fa-facebook-f"></i></a>-->
+<!--        </span>-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    -->
+        <br>
+       <br>
+       <br>
+      <!-- ################# Footer Starts Here#######################-->
+    <section class="">
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: #0a4275;">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: CTA -->
+        <section class="">
+          <p class="d-flex justify-content-center align-items-center">
+            <span class="me-3">Register for free</span>
+            <button type="button" class="btn btn-outline-light btn-rounded">
+              <a href="./accounts/signUp/"></a>Sign up!
+            </button>
+          </p>
+        </section>
+        <!-- Section: CTA -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2023 Copyright:
+        <a class="text-white" href="https://inssen.com/">inssen.com.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </section>
+
+    </body>
+
+</html>
